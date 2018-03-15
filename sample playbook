@@ -1,0 +1,19 @@
+---
+- hosts: webserver
+ 
+  tasks:
+  - name: ensure apache is at the latest version
+    apt: name=apache2 state=latest
+
+- hosts: dbserver
+
+  tasks:
+  - name: ensure postgresql is at the latest version
+    apt: name=postgresql state=latest
+  - name: ensure that postgresql is started
+    service: name=postgresql state=started
+
+
+
+
+ #ansible-playbook  test1.yaml -b
